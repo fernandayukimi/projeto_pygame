@@ -26,7 +26,7 @@ dragao_skin.fill((34,139,34))
 
 #maçã
 apple_pos = on_grid_random()
-apple = pygame.surface ((10,10))
+apple = pygame.Surface ((10,10))
 apple.fill((255,0,0))
 
 
@@ -84,14 +84,14 @@ while not game_over:
         dragao[0] = (dragao[0][0]-10, dragao[0][1])    
 
     screen.fill((255,255,255))
-    screen.bliot(apple, apple_pos)
+    screen.blit(apple, apple_pos)
     
     for x in range(0,600,10):
         pygame.draw.line(screen, (40,40,40), (x,0), (x, 600))
     for y in range (0,600,10):
         pygame.draw.line(screen, (40,40,40), (0,y), (600, y))
-    
-    score_font = font.render('Score: %s' % (score), True, (255,255,255))
+
+    score_font = font.render('Score: %s' % (score), True, (255,0,0))
     score_rect = score_font.get_rect()
     score_rect.topleft = (600 - 120,10)
     screen.blit(score_font,score_rect)
@@ -102,7 +102,7 @@ while not game_over:
 
 while True:
     game_over_font = pygame.font.Font('freesansbold.ttf', 75)
-    game_over_screen = game_over_font.render('Game Over', True, (0,0,0))
+    game_over_screen = game_over_font.render('Game Over', True, (255,0,0))
     game_over_rect = game_over_screen.get_rect()
     game_over_rect.midtop = (600 / 2, 10)
     screen.blit(game_over_screen, game_over_rect)
@@ -113,8 +113,3 @@ while True:
             if event.type == QUIT:
                 pygame.quit()
                 exit()
-
-
-
-
-

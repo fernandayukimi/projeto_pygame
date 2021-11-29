@@ -85,11 +85,6 @@ while not game_over:
 
     screen.fill((255,255,255))
     screen.blit(apple, apple_pos)
-    
-    for x in range(0,600,10):
-        pygame.draw.line(screen, (40,40,40), (x,0), (x, 600))
-    for y in range (0,600,10):
-        pygame.draw.line(screen, (40,40,40), (0,y), (600, y))
 
     score_font = font.render('Score: %s' % (score), True, (255,0,0))
     score_rect = score_font.get_rect()

@@ -1,3 +1,4 @@
 # projeto_pygame
-projeto final de dessoft com pygame 
+Felipe Tetsuo No
+Fernanda Yukimi 
 

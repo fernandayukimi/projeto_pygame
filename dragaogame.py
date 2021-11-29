@@ -1,7 +1,10 @@
+#importações
 import pygame
 import random
 from pygame.locals import *
 
+
+#surgimento aleatorio das maçãs e colisão com a maçã
 def on_grid_random():
     x = random.randint(0,59)
     y = random.randint(0,59)
@@ -9,14 +12,18 @@ def on_grid_random():
 def collision(c1, c2):
     return (c1 [0]== c2[0] and (c1[1] == c2[1]))
 
+
+
 UP = 0
 RIGHT = 1
 DOWN = 2
 LEFT = 3
 
-
+#skin do personagem: que no caso é um dragão
 pygame.init()
-screen = pygame.display.set_mode((600, 600))
+altura = 500
+largura = 500
+screen = pygame.display.set_mode((altura, largura))
 pygame.display.set_caption('dragao')
 
 
@@ -59,7 +66,7 @@ while not game_over:
         apple_pos = on_grid_random()
         dragao.append((0,0))
         score = score + 1
-    if dragao[0][0] == 600 or dragao[0][1] == 600 or dragao [0][0]< 0 or dragao [0][1] < 0:
+    if dragao[0][0] == largura or dragao[0][1] == largura or dragao [0][0]< 0 or dragao [0][1] < 0:
         game_over = True
         break
 
@@ -88,7 +95,7 @@ while not game_over:
 
     score_font = font.render('Score: %s' % (score), True, (255,0,0))
     score_rect = score_font.get_rect()
-    score_rect.topleft = (600 - 120,10)
+    score_rect.topleft = (altura - 120,10)
     screen.blit(score_font,score_rect)
 
     for pos in dragao:
@@ -96,10 +103,10 @@ while not game_over:
     pygame.display.update()
 
 while True:
-    game_over_font = pygame.font.Font('freesansbold.ttf', 75)
+    game_over_font = pygame.font.Font('freesansbold.ttf', 65)
     game_over_screen = game_over_font.render('Game Over', True, (255,0,0))
     game_over_rect = game_over_screen.get_rect()
-    game_over_rect.midtop = (600 / 2, 10)
+    game_over_rect.midtop = (altura / 2, 10)
     screen.blit(game_over_screen, game_over_rect)
     pygame.display.update()
     pygame.time.wait(500)
